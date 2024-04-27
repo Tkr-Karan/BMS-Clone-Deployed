@@ -11,13 +11,15 @@ const db = require("./config/dbConfig");
 // using the routes
 const userRoutes = require("./routes/userRoutes");
 const moviesRoutes = require("./routes/moviesRoutes");
-app.use(express.static("./public"));
+const theatresRoutes = require("./routes/theatreRoutes");
+const bookingRoutes = require("./routes/bookingRoutes");
 
 app.use(cors());
 app.use(express.json());
-
 app.use("/api/users", userRoutes);
 app.use("/api/movies", moviesRoutes);
+app.use("/api/theatres", theatresRoutes);
+app.use("/api/bookings", bookingRoutes);
 
 app.get("*", function (req, res) {
   res.sendFile(path.resolve(__dirname, "./public/index.html"));
