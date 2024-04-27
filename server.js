@@ -1,6 +1,6 @@
 const express = require("express");
-const cors = require("cors");
 const path = require("path");
+const cors = require("cors");
 const PORT = 8080;
 
 const app = express();
@@ -14,6 +14,7 @@ const moviesRoutes = require("./routes/moviesRoutes");
 const theatresRoutes = require("./routes/theatreRoutes");
 const bookingRoutes = require("./routes/bookingRoutes");
 
+app.use(express.static("./public"));
 app.use(cors());
 app.use(express.json());
 app.use("/api/users", userRoutes);
